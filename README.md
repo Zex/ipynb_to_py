@@ -1,2 +1,7 @@
 # ipynb_to_py
-Extract source from ipynb
+
+-------------------------------------------------------
+Create Python source code file from ipynb
+
+
+Author: Zex Li <top_zlynch@yahoo.com>

@@ -1,0 +1,8 @@
+*/*.pyc
+*/__pycache__/*
+*.out
+build/*
+logs/*
+data/*
+models/*
+
