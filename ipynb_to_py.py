@@ -29,6 +29,7 @@ def to_py(content, path):
     relpath = os.path.basename(path).replace('ipynb', 'py')
     output = os.path.join(OUTPUT_BASE, \
             os.path.dirname(path).replace(os.getcwd()+'/', ''), relpath)
+    output = output.replace(' ', '')
     output_base = os.path.dirname(output)
 
     if not os.path.isdir(output_base):
@@ -40,7 +41,10 @@ def to_py(content, path):
 
 
 def load_ipynb(base):
-    list(map(foreach_ipynb, glob.iglob(base+'/*.ipynb')))
+    if os.path.isfile(base) and base.endswith('.ipynb'):
+        foreach_ipynb(base)
+        return
+    list(map(foreach_ipynb, glob.iglob(os.path.join(base, '*.ipynb'))))
 
 
 def start_scan(base=None):
